@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: [:show, :create, :edit, :update]
+  before_action :find_recipe, only: [:show, :edit, :update]
 
   def index
     @recipes = Recipe.all
@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.chef = Chef.find(2)
     if @recipe.save
       flash[:success] = "Your recipe was saved succesfully!"
       redirect_to recipes_path
@@ -40,6 +41,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :summary, :description)
+      params.require(:recipe).permit(:name, :summary, :description, :picture)
     end
 end

@@ -10,6 +10,7 @@
       </section>
     </div>
   </div>
+  <%= image_tag(recipe.picture.url, size: "250x150", class: "recipe-image") if recipe.picture? %>
   <p>
     <b>Name:</b> <%= link_to recipe.name, recipe_path(recipe) %>
   </p>

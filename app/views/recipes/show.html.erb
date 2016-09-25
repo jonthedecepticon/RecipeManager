@@ -5,9 +5,10 @@
     <p>
       <b>Created by: </b> <%= @recipe.chef.chefname %>
     </p>
-    <h1><%= @recipe.name %></h1>
-    <h2><%= @recipe.summary %></h2>
-    <h3><%= @recipe.description %></h3><br>
+    <h1>Name: <%= @recipe.name %></h1>
+    <h2>Summary: <%= @recipe.summary %></h2>
+    <h3>Description: <%= @recipe.description %></h3><br>
+    <%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
     <%= link_to "Edit", edit_recipe_path, class: "btn btn-success"%>
   </div>
 </div>
