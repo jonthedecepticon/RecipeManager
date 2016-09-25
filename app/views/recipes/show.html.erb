@@ -7,8 +7,17 @@
     </p>
     <h1>Name: <%= @recipe.name %></h1>
     <h2>Summary: <%= @recipe.summary %></h2>
-    <h3>Description: <%= @recipe.description %></h3><br>
+    <h3>Description: <%= simple_format(@recipe.description) %></h3><br>
     <%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
+    <div class="pull-right">
+      <%= link_to like_recipe_path(@recipe, like: true), method: :post  do %>
+        <i class="glyphicon glyphicon-thumbs-up" ></i>&nbsp; <%= @recipe.thumbs_up_total %>
+      <% end %>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to like_recipe_path(@recipe, like: false), method: :post  do %>
+        <i class="glyphicon glyphicon-thumbs-down" ></i>&nbsp; <%= @recipe.thumbs_down_total %>
+      <% end %>
+    </div>
     <%= link_to "Edit", edit_recipe_path, class: "btn btn-success"%>
   </div>
 </div>

@@ -1,5 +1,7 @@
 <%= render 'shared/page_title', title: "All Recipes" %>
 
+
+
 <div class="col-md-offset-4 col-md-4">
   <% @recipes.each do |recipe| %>
   <div class="col-md-2">
@@ -21,8 +23,9 @@
     <b>Description:</b> <%= recipe.description %>
   </p>
   <p>
-    <small><%= time_ago_in_words(recipe.created_at) %> ago...</small>
+    <small>Created <%= time_ago_in_words(recipe.created_at) %> ago, updated <%= time_ago_in_words(recipe.updated_at) %> ago...</small>
   </p>
   <br><br>
   <% end %>
+  <%= will_paginate %>
 </div>
