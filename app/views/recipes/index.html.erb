@@ -1,14 +1,12 @@
 <%= render 'shared/page_title', title: "All Recipes" %>
 
-
-
 <div class="col-md-offset-4 col-md-4">
   <% @recipes.each do |recipe| %>
   <div class="col-md-2">
     <div class="row">
       <section class="chef_info center">
         <%= gravatar_for recipe.chef, size: 100 %>
-        <h5><b>Chef Name: </b><%= recipe.chef.chefname %></h5>
+        <h5><b>Chef Name: </b><%= link_to recipe.chef.chefname, chef_path(recipe.chef) %></h5>
       </section>
     </div>
   </div>

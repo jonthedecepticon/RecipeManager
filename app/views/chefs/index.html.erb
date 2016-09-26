@@ -1,0 +1,8 @@
+<%= render 'shared/page_title', title: "All Chefs" %>
+
+<% @chefs.each do |chef| %>
+  <%= link_to gravatar_for(chef, size: 200), chef_path(chef) %>
+  <%= link_to chef.chefname, chef_path(chef) %><br><hr>
+<% end %>
+
+<%= will_paginate %>

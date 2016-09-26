@@ -1,0 +1,18 @@
+<%= render 'shared/page_title', title: "Chef: " + @chef.chefname %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= gravatar_for @chef, size: 200 %>
+  </div>
+  <div class="col-md-4">
+    Name: <%= @chef.chefname %><br>
+    Email: <%= @chef.email %><br>
+    Recipes: <br>
+    <div class="well">
+      <% @recipes.each do |recipe| %>
+        <%= link_to recipe.name, recipe_path(recipe) %><br>
+      <% end %>
+      <%= will_paginate @recipes %>
+    </div>
+  </div>
+</div>
