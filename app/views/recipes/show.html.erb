@@ -18,6 +18,8 @@
         <i class="glyphicon glyphicon-thumbs-down" ></i>&nbsp; <%= @recipe.thumbs_down_total %>
       <% end %>
     </div>
-    <%= link_to "Edit", edit_recipe_path, class: "btn btn-success"%>
+    <% if logged_in? and @recipe.chef == current_user %>
+      <%= link_to "Edit", edit_recipe_path, class: "btn btn-success"%>
+    <% end %>
   </div>
 </div>
